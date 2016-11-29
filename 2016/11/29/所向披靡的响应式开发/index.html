@@ -84,18 +84,37 @@
 
 
 
-<meta name="description" content="一般情况下，当元素有设定宽度时，里面的文字会自动换行(这是因为元素有默认的换行属性white-space:normal)。然而，如果录入的不是汉字，而是英文或者数字。当内容超出宽度时不会换行，如下图。">
+<meta name="description" content="2 组织项目文件结构(适用于中小项目)2.1基本目录结构
+doc　//用于存放项目相关文档
+src　//文件资源文件夹
+css　　  //样式文件夹
+js　　　//脚本文件夹
+image　//图片文件夹
+less　　//less文件夹(根据公司要求或个人喜好选择自动化构建工具，本文使用gulp工具)
+备注：重置样式时，推荐使用normalize.css，传统的resetStyle会使得所有标签的样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS强制换行">
-<meta property="og:url" content="http://yoursite.com/2016/11/05/CSS强制换行/index.html">
+<meta property="og:title" content="所向披靡的响应式开发">
+<meta property="og:url" content="http://yoursite.com/2016/11/29/所向披靡的响应式开发/index.html">
 <meta property="og:site_name" content="Harris Chang">
-<meta property="og:description" content="一般情况下，当元素有设定宽度时，里面的文字会自动换行(这是因为元素有默认的换行属性white-space:normal)。然而，如果录入的不是汉字，而是英文或者数字。当内容超出宽度时不会换行，如下图。">
-<meta property="og:image" content="https://github.com/HarrisChang/MarkDownImages/blob/master/img1.png">
-<meta property="og:updated_time" content="2016-11-05T13:58:23.592Z">
+<meta property="og:description" content="2 组织项目文件结构(适用于中小项目)2.1基本目录结构
+doc　//用于存放项目相关文档
+src　//文件资源文件夹
+css　　  //样式文件夹
+js　　　//脚本文件夹
+image　//图片文件夹
+less　　//less文件夹(根据公司要求或个人喜好选择自动化构建工具，本文使用gulp工具)
+备注：重置样式时，推荐使用normalize.css，传统的resetStyle会使得所有标签的样">
+<meta property="og:updated_time" content="2016-11-29T12:28:24.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS强制换行">
-<meta name="twitter:description" content="一般情况下，当元素有设定宽度时，里面的文字会自动换行(这是因为元素有默认的换行属性white-space:normal)。然而，如果录入的不是汉字，而是英文或者数字。当内容超出宽度时不会换行，如下图。">
-<meta name="twitter:image" content="https://github.com/HarrisChang/MarkDownImages/blob/master/img1.png">
+<meta name="twitter:title" content="所向披靡的响应式开发">
+<meta name="twitter:description" content="2 组织项目文件结构(适用于中小项目)2.1基本目录结构
+doc　//用于存放项目相关文档
+src　//文件资源文件夹
+css　　  //样式文件夹
+js　　　//脚本文件夹
+image　//图片文件夹
+less　　//less文件夹(根据公司要求或个人喜好选择自动化构建工具，本文使用gulp工具)
+备注：重置样式时，推荐使用normalize.css，传统的resetStyle会使得所有标签的样">
 
 
 
@@ -116,10 +135,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/05/CSS强制换行/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/29/所向披靡的响应式开发/"/>
 
 
-  <title> CSS强制换行 | Harris Chang </title>
+  <title> 所向披靡的响应式开发 | Harris Chang </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -229,7 +248,7 @@
             
             
               
-                CSS强制换行
+                所向披靡的响应式开发
               
             
           </h1>
@@ -241,8 +260,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-05T20:53:36+08:00" content="2016-11-05">
-              2016-11-05
+            <time itemprop="dateCreated" datetime="2016-11-29T20:26:57+08:00" content="2016-11-29">
+              2016-11-29
             </time>
           </span>
 
@@ -252,8 +271,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/05/CSS强制换行/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/05/CSS强制换行/" itemprop="commentsCount"></span>
+                <a href="/2016/11/29/所向披靡的响应式开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/所向披靡的响应式开发/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -276,7 +295,33 @@
       
 
       
-        <p>一般情况下，当元素有设定宽度时，里面的文字会自动换行(这是因为元素有默认的换行属性white-space:normal)。然而，如果录入的不是汉字，而是英文或者数字。当内容超出宽度时不会换行，如下图。<br><img src="https://github.com/HarrisChang/MarkDownImages/blob/master/img1.png" alt="cmd-markdown-logo"></p>
+        <h2 id="2-组织项目文件结构-适用于中小项目"><a href="#2-组织项目文件结构-适用于中小项目" class="headerlink" title="2 组织项目文件结构(适用于中小项目)"></a>2 组织项目文件结构(适用于中小项目)</h2><h4 id="2-1基本目录结构"><a href="#2-1基本目录结构" class="headerlink" title="2.1基本目录结构"></a>2.1基本目录结构</h4><ol>
+<li>doc　//用于存放项目相关文档</li>
+<li>src　//文件资源文件夹<ul>
+<li>css　　  //样式文件夹</li>
+<li>js　　　//脚本文件夹</li>
+<li>image　//图片文件夹</li>
+<li>less　　//less文件夹(根据公司要求或个人喜好选择自动化构建工具，本文使用gulp工具)<blockquote>
+<p><strong>备注</strong>：重置样式时，推荐使用normalize.css，传统的resetStyle会使得所有标签的样式统一。<br>而normalize.css在消除不同浏览器解析差异的同时又会保持标签的个性样式，是较好的选择。<br>在windows环境下使用命令行<code>npm install --save normalize.css</code>即可下载。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-2非常规文件"><a href="#2-2非常规文件" class="headerlink" title="2.2非常规文件"></a>2.2非常规文件</h4><ol>
+<li>robots.txt　// robots.txt是一个协议，而不是一个命令。robots.txt是搜索引擎中访问网站的时候要查看的第一个文件。robots.txt文件告诉蜘蛛程序在服务器上什么文件是可以被查看的。当然这只是互联网的道德规范，并非所有的浏览器商都是君子，安全系数为0。</li>
+<li><a href="http://www.humanstxt.org.cn/" target="_blank" rel="external">humans.txt</a>　//包含了参加该网站创建人员的信息，如团队成员、感谢和站点的技术信息。 通过该文本文件，可以快速了解该网站背后的团队信息以及他们的故事。</li>
+<li><a href="http://editorconfig.org/" target="_blank" rel="external">editorconfig</a>　//用来使不同的IDE根据该文件显示相同的代码风格，便于程序员在不同IDE中维护，包括缩进格式、编码格式、换行规格。<blockquote>
+<p><strong>example</strong><br>root = true　最顶层的配置文件，之后再不会查找其他文件<br>[*]　以下规则应用于所有文件<br>charset = utf-8　所有文件的编码格式为utf-8<br>indent_size = 4　代码缩进的空格数，可为tab<br>indent_style = space　代码缩进的样式，为空格<br>insert_final_newline = true　每个文件以空白行结尾<br>trim_trailing_whitespace = true　去除换行行首的空白字符<br>[*.md]　以下规则引用与markdown文件<br>trim_trailing_whitespace =  false　在md文件中，不去除换行行首的空白字符</p>
+</blockquote>
+</li>
+<li><a href="http://www.ydcss.com/archives/18" target="_blank" rel="external">package.json</a>　//定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。</li>
+<li><a href="http://www.ydcss.com/archives/18" target="_blank" rel="external">gulpfile.js</a>　//gulp项目的配置文件，是位于项目根目录的普通js文件</li>
+<li>gitignore　//告诉git版本控制工具，哪些文件不需要添加到版本管理中</li>
+<li>LICENSE.txt　//用来存放许可协议，名称为大写，包括版权声明，开源协议</li>
+<li>CHANGLOG.md　//用来存放项目每个版本的更新，以及说明版本号、更新内容、修复了哪些问题等</li>
+<li>README.md　//用来存放项目简介、使用方式、相关连接</li>
+</ol>
 
       
     </div>
@@ -302,13 +347,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/05/年少轻狂/" rel="next" title="年少轻狂">
+                <i class="fa fa-chevron-left"></i> 年少轻狂
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/05/年少轻狂/" rel="prev" title="年少轻狂">
-                年少轻狂 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -334,8 +379,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/05/CSS强制换行/"
-           data-title="CSS强制换行" data-url="http://yoursite.com/2016/11/05/CSS强制换行/">
+      <div class="ds-thread" data-thread-key="2016/11/29/所向披靡的响应式开发/"
+           data-title="所向披靡的响应式开发" data-url="http://yoursite.com/2016/11/29/所向披靡的响应式开发/">
       </div>
     
   </div>
@@ -432,7 +477,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-组织项目文件结构-适用于中小项目"><span class="nav-number">1.</span> <span class="nav-text">2 组织项目文件结构(适用于中小项目)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1基本目录结构"><span class="nav-number">1.0.1.</span> <span class="nav-text">2.1基本目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2非常规文件"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.2非常规文件</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
