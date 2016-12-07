@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="做一个超级自律、超级热爱生活的人！">
-<meta property="og:type" content="website">
+<meta name="description" content="使用gulp有挺长一段时间了，起初只是为了用less编译css，后来慢慢拓展到压缩文件以及浏览器自动刷新等。到现在，自己已经配置了一套基本齐全的gulpfile文件，能满足小型项目开发所需的功能，文中会一一提到，这里就不再赘诉。
+1、安装node.js   1.1 gulp是基于node.js的，所以第一步需要安装node.js;   1.2 打开nodejs官网，根据操作系统下载相应版本，然后安">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Harris Chang">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/12/07/前端自动化构建工具Gulp基本配置/index.html">
 <meta property="og:site_name" content="Harris Chang">
-<meta property="og:description" content="做一个超级自律、超级热爱生活的人！">
+<meta property="og:description" content="使用gulp有挺长一段时间了，起初只是为了用less编译css，后来慢慢拓展到压缩文件以及浏览器自动刷新等。到现在，自己已经配置了一套基本齐全的gulpfile文件，能满足小型项目开发所需的功能，文中会一一提到，这里就不再赘诉。
+1、安装node.js   1.1 gulp是基于node.js的，所以第一步需要安装node.js;   1.2 打开nodejs官网，根据操作系统下载相应版本，然后安">
+<meta property="og:updated_time" content="2016-12-07T13:00:59.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Harris Chang">
-<meta name="twitter:description" content="做一个超级自律、超级热爱生活的人！">
+<meta name="twitter:description" content="使用gulp有挺长一段时间了，起初只是为了用less编译css，后来慢慢拓展到压缩文件以及浏览器自动刷新等。到现在，自己已经配置了一套基本齐全的gulpfile文件，能满足小型项目开发所需的功能，文中会一一提到，这里就不再赘诉。
+1、安装node.js   1.1 gulp是基于node.js的，所以第一步需要安装node.js;   1.2 打开nodejs官网，根据操作系统下载相应版本，然后安">
 
 
 
@@ -113,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/07/前端自动化构建工具Gulp基本配置/"/>
 
 
-  <title> Harris Chang </title>
+  <title>  | Harris Chang </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,9 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -206,9 +208,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -229,9 +231,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/07/前端自动化构建工具Gulp基本配置/" itemprop="url">
-                  未命名
-                </a>
               
             
           </h1>
@@ -278,9 +277,7 @@
       
 
       
-        
-          
-            <p>使用gulp有挺长一段时间了，起初只是为了用less编译css，后来慢慢拓展到压缩文件以及浏览器自动刷新等。到现在，自己已经配置了一套基本齐全的gulpfile文件，能满足小型项目开发所需的功能，文中会一一提到，这里就不再赘诉。</p>
+        <p>使用gulp有挺长一段时间了，起初只是为了用less编译css，后来慢慢拓展到压缩文件以及浏览器自动刷新等。到现在，自己已经配置了一套基本齐全的gulpfile文件，能满足小型项目开发所需的功能，文中会一一提到，这里就不再赘诉。</p>
 <h2 id="1、安装node-js"><a href="#1、安装node-js" class="headerlink" title="1、安装node.js"></a>1、安装node.js</h2><p>   1.1 gulp是基于node.js的，所以第一步需要安装node.js;<br>   1.2 打开<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs官网</a>，根据操作系统下载相应版本，然后安装即可；</p>
 <h2 id="2、npm介绍"><a href="#2、npm介绍" class="headerlink" title="2、npm介绍"></a>2、npm介绍</h2><p>   2.1 npm(node package manager)是nodejs的包管理器，用于node插件管理(包括安装、卸载、管理依赖等);<br>   2.2 使用npm安装插件：命令行执行<code>npm install &lt;name&gt; [-g] [- -save-dev]</code>;</p>
 <ul>
@@ -373,16 +370,20 @@ gulp.task(&apos;production&apos;,function(){
 });
 </code></pre><p>如有疑问，欢迎留言咨询或发mail给我~</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -390,352 +391,32 @@ gulp.task(&apos;production&apos;,function(){
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/29/所向披靡的响应式开发/" rel="next" title="所向披靡的响应式开发">
+                <i class="fa fa-chevron-left"></i> 所向披靡的响应式开发
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/11/29/所向披靡的响应式开发/" itemprop="url">
-                  所向披靡的响应式开发
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T20:26:57+08:00" content="2016-11-29">
-              2016-11-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/29/所向披靡的响应式开发/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/所向披靡的响应式开发/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="2-组织项目文件结构-适用于中小项目"><a href="#2-组织项目文件结构-适用于中小项目" class="headerlink" title="2 组织项目文件结构(适用于中小项目)"></a>2 组织项目文件结构(适用于中小项目)</h2><h4 id="2-1基本目录结构"><a href="#2-1基本目录结构" class="headerlink" title="2.1基本目录结构"></a>2.1基本目录结构</h4><ol>
-<li>doc　//用于存放项目相关文档</li>
-<li>src　//文件资源文件夹<ul>
-<li>css　　  //样式文件夹</li>
-<li>js　　　//脚本文件夹</li>
-<li>image　//图片文件夹</li>
-<li>less　　//less文件夹(根据公司要求或个人喜好选择自动化构建工具，本文使用gulp工具)<blockquote>
-<p><strong>备注</strong>：重置样式时，推荐使用normalize.css，传统的resetStyle会使得所有标签的样式统一。<br>而normalize.css在消除不同浏览器解析差异的同时又会保持标签的个性样式，是较好的选择。<br>在windows环境下使用命令行<code>npm install --save normalize.css</code>即可下载。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="2-2非常规文件"><a href="#2-2非常规文件" class="headerlink" title="2.2非常规文件"></a>2.2非常规文件</h4><ol>
-<li>robots.txt　// robots.txt是一个协议，而不是一个命令。robots.txt是搜索引擎中访问网站的时候要查看的第一个文件。robots.txt文件告诉蜘蛛程序在服务器上什么文件是可以被查看的。当然这只是互联网的道德规范，并非所有的浏览器商都是君子，安全系数为0。</li>
-<li><a href="http://www.humanstxt.org.cn/" target="_blank" rel="external">humans.txt</a>　//包含了参加该网站创建人员的信息，如团队成员、感谢和站点的技术信息。 通过该文本文件，可以快速了解该网站背后的团队信息以及他们的故事。</li>
-<li><a href="http://editorconfig.org/" target="_blank" rel="external">editorconfig</a>　//用来使不同的IDE根据该文件显示相同的代码风格，便于程序员在不同IDE中维护，包括缩进格式、编码格式、换行规格。<blockquote>
-<p><strong>example</strong><br>root = true　最顶层的配置文件，之后再不会查找其他文件<br>[*]　以下规则应用于所有文件<br>charset = utf-8　所有文件的编码格式为utf-8<br>indent_size = 4　代码缩进的空格数，可为tab<br>indent_style = space　代码缩进的样式，为空格<br>insert_final_newline = true　每个文件以空白行结尾<br>trim_trailing_whitespace = true　去除换行行首的空白字符<br>[*.md]　以下规则引用与markdown文件<br>trim_trailing_whitespace =  false　在md文件中，不去除换行行首的空白字符</p>
-</blockquote>
-</li>
-<li><a href="http://www.ydcss.com/archives/18" target="_blank" rel="external">package.json</a>　//定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。</li>
-<li><a href="http://www.ydcss.com/archives/18" target="_blank" rel="external">gulpfile.js</a>　//gulp项目的配置文件，是位于项目根目录的普通js文件</li>
-<li>gitignore　//告诉git版本控制工具，哪些文件不需要添加到版本管理中</li>
-<li>LICENSE.txt　//用来存放许可协议，名称为大写，包括版权声明，开源协议</li>
-<li>CHANGLOG.md　//用来存放项目每个版本的更新，以及说明版本号、更新内容、修复了哪些问题等</li>
-<li>README.md　//用来存放项目简介、使用方式、相关连接</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/05/年少轻狂/" itemprop="url">
-                  年少轻狂
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-05T22:06:38+08:00" content="2016-11-05">
-              2016-11-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/05/年少轻狂/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/05/年少轻狂/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>之前在别的主页上post的一些文字，有自己写的，也有copy别人的。虽然现在看起来连自己都会脸红，但毕竟也算是小小的财富，还是搬过来吧。算是时刻提醒自己也有过一段愚蠢的过去。</p>
-<p><center>茧</center><br>强迫一只蛹去破茧，让它落在蜘蛛的网里，是否就是仁慈？<br>如果，有醒不了的梦，我一定去做；<br>如果，有走不完的路，我一定去走；<br>如果，有变不了的爱，我一定去求；<br>趁生命最后的余光，再仔仔细细检视一点一滴，把鲜明生动的日子装进，把熟悉的面孔，熟悉的一言一语装进，把生活的扉页，撕下那页最重最钟爱的，也一并装入，自己要一遍又一遍地再读。把自己也最后装入，甘心在二十岁，收拾一切灿烂的结束。把微笑还给昨天，把孤单留给自己。<br>让懂的人懂。<br>让不懂的人不懂；<br>让世界是世界，<br>我甘心是我的茧。</p>
-<p><center>写给你的《小王子》</center><br>花总是表里不一，而我太年轻了，不知道该怎样爱护她……<br>正因为你为你的玫瑰花费了时间，这才使你的玫瑰变得如此重要<br>如果有人爱上了在这亿万颗星星中独一无二的一株花，当他看着这些星星 的时候，这就足以使他感到幸福。他可以自言自语地说：‘我的那朵花就在其中的一颗星星上……’<br>狐狸爱着小王子，而小王子的眼里全是他的玫瑰；</p>
-<p>在进入社会之前，我们的世界应该都是很纯真的吧。<br>只是，就像《小王子》里说的那样“最重要的是看不见的”，别人不会这样以为罢了<br>已经是第三次看这本小说了，一直在考虑一个问题：为什么小王子会离开玫瑰呢？<br>忽然想起《天堂向左，深圳向右》里的一句话，韩灵说：“也许只有离开，才能感受到我是深深爱着他的”，大概只有在遇到狐狸、看到那片玫瑰花海之后，小王子才意识到：在这个世界上，有一种花叫做玫瑰，而真正属于他的只有一朵，是那朵他付出很多很多，唯一活在他心中的玫瑰，尽管，到死他也没有再次遇见她。<br>不知道C有没有看过这本书，小学时看这书未免有些早，现在看应该还算比较合适吧，可以不要那么早看到这个世界丑陋的一面。<br>终于明白为什么小王子的死是必然的了，<br>因为，成长必将代替了孩童时代，而小王子再也回不去了。<br>又或者，他的那朵玫瑰花早已经凋谢。</p>
-<p><center>曾经拥有的，渐渐失去</center><br>我静静的站在角落里，看着这个世界，看着来来往往的人群。<br>每个人都步履匆匆的从我的身边走过，渐行渐远。<br>似乎所有的人都处于已经离开我，或者将要离开，以及正在离开……<br>看着悄无声息离去的人群，我恐惧不安，异常失落。<br>突然看清自己是一个极其懦弱的人。<br>原来，我是害怕寂寞的。<br>原来，我是在乎这些人的。<br>无论是在好朋友的包围之中，还是在一个人的时候，<br>心里总像是有个很大的洞，空空的，什么都没有，好像永远都填不满。<br>总想说一些话给谁听，但很多时候似乎都只是在说给自己听。<br>也许是我要的太多了。<br>而我要的，是看不见的，无法衡量，无法捕捉，更无法留住。<br>一个什么都想要的人，最后多半是什么都得不到。<br>别人并不能给我，或者不能，或者不愿<br>又回到了这个让我倍感孤独的城市，我的日子也回到从前的单调无味。<br>其实我并不希望这么孤单的活着，<br>我渴望温柔的疼爱，<br>我渴望被身边的人喜欢。<br>我拒绝被不能忍受的忽略陪伴着，<br>我更厌倦了那些人嘲笑我的自哀自怜，<br>甚至有很多时候，我分辨不清人心的真伪。<br>然而，<br>他们离去了，我却又这样的不情愿。<br>世界上的一切人或事都是容易被轻易遗忘的。<br>没有什么可以永垂不朽，没有什么是永远不能失去的。<br>曾经拥有的，我渐渐失去了；<br>曾经的人，渐渐离开了。<br>友情与爱情，也败给了伟大的时间。<br>我们离散在岁月的风里，最后，不见了踪影。<br>突然，我发现自己也在渐渐遗忘某些人，某些事，渐渐在远离一些人的生活。<br>安静的走近，安静的离开。<br>离开·遗忘<br>我不怕遗忘，只是心里会遗憾，<br>然而，面对人与人之间的感情，我们本就无力。<br>我想，我们都可以，空空的前行。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/05/CSS强制换行/" itemprop="url">
-                  CSS强制换行
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-05T20:53:36+08:00" content="2016-11-05">
-              2016-11-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/05/CSS强制换行/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/05/CSS强制换行/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一般情况下，当元素有设定宽度时，里面的文字会自动换行(这是因为元素有默认的换行属性white-space:normal)。然而，如果录入的不是汉字，而是英文或者数字。当内容超出宽度时不会换行，如下图。<br><img src="https://github.com/HarrisChang/MarkDownImages/blob/master/img1.png" alt="cmd-markdown-logo"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -743,6 +424,14 @@ gulp.task(&apos;production&apos;,function(){
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/07/前端自动化构建工具Gulp基本配置/"
+           data-title="" data-url="http://yoursite.com/2016/12/07/前端自动化构建工具Gulp基本配置/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -762,8 +451,17 @@ gulp.task(&apos;production&apos;,function(){
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -819,6 +517,17 @@ gulp.task(&apos;production&apos;,function(){
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、安装node-js"><span class="nav-number">1.</span> <span class="nav-text">1、安装node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、npm介绍"><span class="nav-number">2.</span> <span class="nav-text">2、npm介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、全局安装gulp"><span class="nav-number">3.</span> <span class="nav-text">3、全局安装gulp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、新建package-json文件"><span class="nav-number">4.</span> <span class="nav-text">4、新建package.json文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、本地安装gulp和所需插件"><span class="nav-number">5.</span> <span class="nav-text">5、本地安装gulp和所需插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、新建gulpfile-js文件"><span class="nav-number">6.</span> <span class="nav-text">6、新建gulpfile.js文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、通过命令行提示符运行gulp"><span class="nav-number">7.</span> <span class="nav-text">7、通过命令行提示符运行gulp</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -922,6 +631,10 @@ gulp.task(&apos;production&apos;,function(){
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
