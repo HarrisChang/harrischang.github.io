@@ -856,6 +856,389 @@ gulp.task(&apos;production&apos;,function(){
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/24/正则RegExp常用操作/" itemprop="url">
+                  正则RegExp常用操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-24T12:11:04+08:00" content="2016-07-24">
+              2016-07-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/24/正则RegExp常用操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/正则RegExp常用操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>网上有太多太多关于正则的文章，写的非常详细，且篇幅很长。但是对于多数人来说其实是没有精力看完并全部吸收掉的。本文旨在用简洁的语言囊括日常工作中需要的多数用法，如果您想进行全面的了解，建议去大神<a href="http://javascript.ruanyifeng.com/stdlib/regexp.html#toc0" target="_blank" rel="external">阮一峰</a>的博客学习。</p>
+<h4 id="一、RegExp的创建"><a href="#一、RegExp的创建" class="headerlink" title="一、RegExp的创建"></a>一、RegExp的创建</h4><ul>
+<li>var reg = /xyz/;  var reg2 = /xyz/i;  //在编译时新建正则表达式</li>
+<li>var reg = new RegExp(‘xyz’);  var reg2 = new RegExp(‘’xyz,”i”);   //在运行时新建表达式<br>备注：这两种方法等价，通常会使用第一种字面量形式创建。</li>
+</ul>
+<h4 id="二、RegExp的属性"><a href="#二、RegExp的属性" class="headerlink" title="二、RegExp的属性"></a>二、RegExp的属性</h4><p>修饰类相关，返回一个布尔值，表示对应的修饰符是否设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var reg = /xyz/igm;</div><div class="line">r.ignoreCase //true;</div><div class="line">r.global  //true;</div><div class="line">r.multiline //true;</div></pre></td></tr></table></figure></p>
+<h4 id="三、RegExp的方法"><a href="#三、RegExp的方法" class="headerlink" title="三、RegExp的方法"></a>三、RegExp的方法</h4><ol>
+<li>test()<br>正则对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/cat/.test(&quot;dog and cat&quot;);  //true</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;&ensp;注： 如果正则表达式带有g修饰符，则每一次test方法都从上一次结束的位置开始向后匹配。</p>
+<h4 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h4><h5 id="4-1-匹配规则"><a href="#4-1-匹配规则" class="headerlink" title="4.1 匹配规则"></a>4.1 匹配规则</h5><p>4.11 点字符(.)<br>        匹配除回车(\r)、换行(\n)、行分隔符(\u2028)和段分隔符(\u2029)以外的所有字符。<br>4.12 选择符(|)<br>        竖线表示选择符or<br>4.13 位置字符<br>        位置字符用来提示字符所处位置，主要有两个字符。^表示字符串开始的位置，$表示字符串结束的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//test 必须出现在起始位置</div><div class="line">/^test/.test(&apos;test123&apos;);  //true</div><div class="line"></div><div class="line">// test 必须出现在结束位置</div><div class="line">/test$/.test(&apos;new test&apos;);  //true</div><div class="line"></div><div class="line">// 从开始位置到结束位置只有test</div><div class="line">/^test$/.test(&apos;test test&apos;);  //false</div></pre></td></tr></table></figure></p>
+<p>4.14 转义符<br>正则模式中，需要用到斜杠转义的，共有12个字符：^ . [ $ ( ) | * + ?  { \</p>
+<p><font color="#fe6f69">需特别注意的是，若使用JS方法生成对象，转义需要两个斜杠，因为字符内部会先转义一次。</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(new RegExp(&apos;1\+1&apos;)).test(&apos;1+1&apos;); //false</div><div class="line">(new RegExp(&apos;1\\+1&apos;)).test(&apos;1+1&apos;); //true</div><div class="line">/1\+1/.test(&apos;1+1&apos;); //true</div></pre></td></tr></table></figure></p>
+<h5 id="4-2-字符类"><a href="#4-2-字符类" class="headerlink" title="4.2 字符类"></a>4.2 字符类</h5><p>字符类(class)表示有一系列字符可供选择，只要匹配其中一个就可以，所有可供选择的字符都放在方括号内。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/[abc]/.test(&apos;hello world&apos;); //false</div><div class="line">/[abc]/.test(&apos;apple&apos;); //true</div></pre></td></tr></table></figure></p>
+<p>4.21 脱字符(^)<br>如果方括号的第一个字符是^，则表示除了字符类中的字符，其他字符都可以匹配。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/[^abc]/.test(&apos;hello world&apos;); //true</div><div class="line">/[^abc]/.test(&apos;apple&apos;); //false</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>如果方括号内只有^，没有其他字符，则表示匹配一切字符，而点号(.)是不包括换行符的。(脱字符只有在字符类的第一个位置才有意义，其他位置只代表字面的含义)</p>
+</blockquote>
+<p>4.22 连字符(-)<br>连字符用来提供简写形式，表示字符的连续范围。(需写在方括号中，才具有简写的意义)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/a-z/.test(&apos;b&apos;); //false</div><div class="line">/[a-z]/.test(&apos;b&apos;); //true</div></pre></td></tr></table></figure></p>
+<h5 id="4-3-预定义模式"><a href="#4-3-预定义模式" class="headerlink" title="4.3 预定义模式"></a>4.3 预定义模式</h5><p>预定义模式指的是某些常见模式的简写方式。</p>
+<pre>
+\d 匹配0到9之间的任一数字，相当于[0-9]
+\D 匹配所有0到9以外的字符，相当于[^0-9]
+\w 匹配任意的字母、数字、下划线，相当于[a-zA-Z0-9_]
+\W 匹配所有字母、数字、下划线以外的字符，相当于[^a-zA-Z0-9_]
+\s 匹配空格(包括制表符、空格符、断行符等)，相当于[\t\r\n\v\f]
+\S 匹配非空格的字符，相当于[^\t\r\n\v\f]
+</pre>
+
+<h5 id="4-4-其他"><a href="#4-4-其他" class="headerlink" title="4.4 其他"></a>4.4 其他</h5><p>4.41 重复类<br>模式的精确匹配次数，使用大括号表示。{n}表示恰好重复n次，{n,m}表示不少于n次，不多于m次。<br>4.42 量词类</p>
+<p><pre><br>? 表示某个模式出现0次或1次，等同于{0,1}</pre></p>
+<ul>
+<li>星号表示某个模式出现0次或多次，等同于{0,}</li>
+</ul>
+<ul>
+<li>加号表示某个模式出现1次或多次，等同于{1,}<br><h4 id="五、字符串对象的方法"><a href="#五、字符串对象的方法" class="headerlink" title="五、字符串对象的方法"></a>五、字符串对象的方法</h4><h5 id="5-1-String-prototype-match"><a href="#5-1-String-prototype-match" class="headerlink" title="5.1 String.prototype.match()"></a>5.1 String.prototype.match()</h5>对字符串进行字符匹配，返回匹配结果。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var s1 = &apos;_x_x&apos;, r1 = /x/, r2 = /y/;</div><div class="line">s1.match(r1); //[&quot;x&quot;]</div><div class="line">s1.match(r2); //null</div><div class="line"></div><div class="line">var s2 = &apos;abba&apos;, r3 = /b/g;</div><div class="line">s2.match(r3); //[&quot;b&quot;,&quot;b&quot;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="5-2-String-prototype-search"><a href="#5-2-String-prototype-search" class="headerlink" title="5.2 String.prototype.search()"></a>5.2 String.prototype.search()</h5><p>返回第一个满足匹配结果在字符串中的位置，如若没有任何匹配，则返回-1，该方法会忽略g修饰符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s1 = &apos;_x_x&apos;, r1 = /x/, r2 = /x/g, r3 = /y/;</div><div class="line">s1.search(r1); //1</div><div class="line">s1.search(r2); //1</div><div class="line">s1.search(r3); //-1</div></pre></td></tr></table></figure></p>
+<h5 id="5-3-String-prototype-replace"><a href="#5-3-String-prototype-replace" class="headerlink" title="5.3 String.prototype.replace()"></a>5.3 String.prototype.replace()</h5><p>替换匹配的值，接受两个参数，第一个是搜索模式，第二个是替换的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//replace的一个应用，就是用来消除字符串首尾两端的空格</div><div class="line">var str = &quot;  hello world  &quot;;</div><div class="line">str.replace(/^\s+|\s+$/g, &apos;&apos;);</div></pre></td></tr></table></figure></p>
+<p>replace()方法的第二个参数还可以是个函数，将每一个匹配内容替换为函数返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;3 and 5&apos;.replace(/\d/g,function(match)&#123;</div><div class="line">    return 2 * match;</div><div class="line">&#125;); //&quot;6 and 10&quot;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/16/数组Array常用操作/" itemprop="url">
+                  数组Array常用操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-16T16:53:01+08:00" content="2016-07-16">
+              2016-07-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/16/数组Array常用操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/16/数组Array常用操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="一、常用操作"><a href="#一、常用操作" class="headerlink" title="一、常用操作"></a>一、常用操作</h4><h5 id="1-删除delete"><a href="#1-删除delete" class="headerlink" title="1. 删除delete"></a>1. 删除delete</h5><p>删除元素基本方法delete，不会改变数组长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3];</div><div class="line">delete a[1];</div><div class="line">console.log(a[1]); //undefined</div></pre></td></tr></table></figure></p>
+<h5 id="2-栈方法push、pop改变数组长度"><a href="#2-栈方法push、pop改变数组长度" class="headerlink" title="2. 栈方法push、pop改变数组长度"></a>2. 栈方法push、pop改变数组长度</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3];</div><div class="line">a.push(4);</div><div class="line">a.pop();</div></pre></td></tr></table></figure>
+<h5 id="3-队列shift，unshift"><a href="#3-队列shift，unshift" class="headerlink" title="3. 队列shift，unshift"></a>3. 队列shift，unshift</h5><p>与push、pop不同，shift和unshift是向头部注入或删除一个元素</p>
+<h5 id="4-终极神器"><a href="#4-终极神器" class="headerlink" title="4. 终极神器"></a>4. 终极神器</h5><p>JS提供了一个splice方法用于一次性解决数组添加、删除(这两种方法一结合就可以达到替换效果)，有三个参数：</p>
+<p><ul></ul></p>
+<p><li>参数一：开始索引</li></p>
+<p><li>参数二：删除元素的位移</li></p>
+<p><li>参数三：插入的新元素，当然也可以写多个</li><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3];</div><div class="line">a.splice(1,1,5,5,5);</div><div class="line">console.log(a); //[1, 5, 5, 3]</div></pre></td></tr></table></figure></p>
+<h5 id="5-join-char"><a href="#5-join-char" class="headerlink" title="5. join(char)"></a>5. join(char)</h5><p>该方法在C#等语言中也有，作用是把数组元素(对象调用其toString())使用参数作为连接符连接成一字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3, 4, 5];</div><div class="line">a.join(&quot;&quot;); //&quot;12345&quot;</div><div class="line">a.join(&quot;,&quot;); //&quot;1,2,3,4,5&quot;</div></pre></td></tr></table></figure></p>
+<h5 id="6-slice-start-end"><a href="#6-slice-start-end" class="headerlink" title="6. slice(start, end)"></a>6. slice(start, end)</h5><p>该方法用于返回数组中一个片段或者子数组，如果只写一个参数返回数组到数组结束部分。如果参数出现负数，则从数组尾部开始计数(-3是指数组倒数第三个，想舍弃后n个的时候很好用)，如果start大于end返回空数组。slice不会改变原数组，而是返回一个新的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a=new Array(1,2,3,4,5);</div><div class="line">console.log(a); //[1, 2, 3, 4, 5]</div><div class="line">console.log(a.slice(1,2)); //2</div><div class="line">console.log(a.slice(1,-1)); //[2, 3, 4]</div><div class="line">console.log(a.slice(3,2)); //[]</div><div class="line">console.log(a); //[1, 2, 3, 4, 5]</div></pre></td></tr></table></figure></p>
+<h5 id="7-concat-Array"><a href="#7-concat-Array" class="headerlink" title="7. concat(Array)"></a>7. concat(Array)</h5><p>该方法用于拼接数组，同样不会修改原始数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3], b = [4, 5, 6];</div><div class="line">a.concat(b); //[1, 2, 3, 4, 5, 6]</div></pre></td></tr></table></figure></p>
+<h5 id="8-reverse"><a href="#8-reverse" class="headerlink" title="8. reverse()"></a>8. reverse()</h5><p>该方法用于将数组逆序，<strong>它会改变原数组</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3];</div><div class="line">a.reverse();</div><div class="line">console.log(a); //[3, 2, 1]</div></pre></td></tr></table></figure></p>
+<h3 id="9-sort-sortby"><a href="#9-sort-sortby" class="headerlink" title="9. sort(sortby)"></a>9. sort(sortby)</h3><p>该方法用于将数组排序，参数可选但必须是函数，<strong>它会改变原数组</strong></p>
+<blockquote>
+<p>未使用参数：将按字母顺序对数组中的元素进行排序，说的更精确点，是按照字符编码的顺序进行排序。要实现这一点，需先把数组元素都转换成字符串(如有需要)，以便进行比较。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = [4, 1, 5, 2, 3], b = [4, 1, 5, 11, 3, 2];</div><div class="line">a.sort(); //[1, 2, 3, 4, 5]</div><div class="line">b.sort(); //[1, 11, 2, 3, 4, 5]</div><div class="line">b.sort(function(v1, v2)&#123;</div><div class="line">    return v1 - v2;</div><div class="line">&#125;); //[1, 2, 3, 4, 5, 11]</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="二、延展功能"><a href="#二、延展功能" class="headerlink" title="二、延展功能"></a>二、延展功能</h4><h5 id="1-数组的去重"><a href="#1-数组的去重" class="headerlink" title="1. 数组的去重"></a>1. 数组的去重</h5><p><strong>方法1：遍历数组进行对比</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">let unique = arr =&gt; &#123;</div><div class="line">    let res = [arr[0]];</div><div class="line">    for(var i of arr)&#123;</div><div class="line">        let REPEAT = false;</div><div class="line">        for(var j of res)&#123;</div><div class="line">            if(i === j)&#123;</div><div class="line">                REPEAT = true;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(!REPEAT)&#123;</div><div class="line">            res.push(i)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">return res;</div><div class="line">&#125;;</div><div class="line">console.log(unique([1,2, 1, 2, 3, 3, 3,4,5])); //[1, 2, 3, 4, 5]</div></pre></td></tr></table></figure></p>
+<p><strong>方法2：hash去重</strong><br><u><li>Step1：创建一个新的数组存放结果</li></u></p>
+<p><li>Step2：创建一个新对象</li></p>
+<p><li>Step3：遍历数组时，每次取出一个元素同对象进行对比，如果这个元素不重复，则将其存放在结果数组中，同时将该元素的内容作为对象的一个属性并赋值为1，存入到对象中。</li><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let unique = arr =&gt; &#123;</div><div class="line">    let res = [], obj = &#123;&#125;;</div><div class="line">    for(var i of arr)&#123;</div><div class="line">        if(!obj[i])&#123;</div><div class="line">            res.push(i);</div><div class="line">            obj[i] = 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;;</div><div class="line">console.log(unique([1,1,2,3,2,1,4,5])); //[1, 2, 3, 4, 5]</div></pre></td></tr></table></figure></p>
+<p>方法2有一个弊端，就是没法区别数据类型，比如无法区分1和“1”，这里就需要进行一点拓展。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let unique = arr =&gt; &#123;</div><div class="line">    let res = [], obj = &#123;&#125;;</div><div class="line">    for(var i of arr)&#123;</div><div class="line">        if(!obj[i])&#123;</div><div class="line">            res.push(i);</div><div class="line">            obj[i+typeof i] = 1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;;</div><div class="line">console.log(unique([1,&quot;1&quot;,2,3,2,1,4,5])); //[1, &quot;1&quot;, 2, 3, 2, 1, 4, 5]</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/16/字符串String常用操作/" itemprop="url">
+                  字符串String常用操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-16T14:23:11+08:00" content="2016-07-16">
+              2016-07-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/16/字符串String常用操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/16/字符串String常用操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="一、String对象属性"><a href="#一、String对象属性" class="headerlink" title="一、String对象属性"></a>一、String对象属性</h4><h5 id="1-1-length属性"><a href="#1-1-length属性" class="headerlink" title="1.1 length属性"></a>1.1 length属性</h5><p>获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。</p>
+<h5 id="1-2-prototype属性"><a href="#1-2-prototype属性" class="headerlink" title="1.2 prototype属性"></a>1.2 prototype属性</h5><p>在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.trim = function()&#123;</div><div class="line">    return this.replace(/^\s*|\s*$/g,&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="二、String对象方法"><a href="#二、String对象方法" class="headerlink" title="二、String对象方法"></a>二、String对象方法</h4><h5 id="2-1-charAt-index"><a href="#2-1-charAt-index" class="headerlink" title="2.1 charAt(index)"></a>2.1 charAt(index)</h5><p>获取指定位置的字符串，从0到str.length-1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcdef&quot;;</div><div class="line">str.charAt(2); //c</div><div class="line">str.charAt(7); // &apos;&apos;</div></pre></td></tr></table></figure></p>
+<h5 id="2-2-charCodeAt-index"><a href="#2-2-charCodeAt-index" class="headerlink" title="2.2 charCodeAt(index)"></a>2.2 charCodeAt(index)</h5><p>返回指定位置字符的unicode编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcde&quot;;</div><div class="line">console.log(str.charCodeAt(0)); //97</div></pre></td></tr></table></figure></p>
+<h5 id="2-3-查找类方法"><a href="#2-3-查找类方法" class="headerlink" title="2.3 查找类方法"></a>2.3 查找类方法</h5><p><strong>2.31 indexOf(searchvalue, fromindex)</strong><br>用来检索指定的字符串值在字符串中首次出现的位置，fromindex可以省略，省略的话从0开始检索。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdeabcde&apos;;</div><div class="line">console.log(str.indexOf(&apos;a&apos;)); //0</div><div class="line">console.log(str.indexOf(&apos;a&apos;, 3)); //5</div><div class="line">console.log(str.indexOf(&apos;bc&apos;)); //1</div></pre></td></tr></table></figure></p>
+<p><strong>2.32 str.lastIndexOf(searchvalue,fromindex)</strong><br>用来检索指定的字符串值最后出现的位置，检索顺序从后向前。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdeabcde&apos;;</div><div class="line">console.log(str.lastIndexOf(&apos;a&apos;)); //5</div><div class="line">console.log(str.lastIndexOf(&apos;a&apos;, 3)); //0 从第索引3的位置往前检索</div><div class="line">console.log(str.lastIndexOf(&apos;bc&apos;)); //6</div></pre></td></tr></table></figure></p>
+<p><strong>2.33 str.search()</strong><br>str.search(substr), str.search(regexp)用于检索字符串中指定的子字符串，或与正则表达式相匹配的子字符串。它返回第一个子字符串的起始位置，如未匹配到，则返回-1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcDEDF&apos;;</div><div class="line">console.log(str.search(&apos;c&apos;)); //2</div><div class="line">console.log(str.search(&apos;d&apos;)); //-1</div><div class="line">console.log(str.search(/d/i)); //3</div></pre></td></tr></table></figure></p>
+<p><strong>2.34 str.match()</strong><br>str.match(substr), str.match(regexp)在字符串内检索指定的值，或找到一个(或多个)正则表达式的匹配。</p>
+<blockquote>
+<p>如果参数中传入的是子字符串或没有全局匹配的正则表达式，则match方法从开始位置进行一次匹配，若未匹配到则返回null，否则返回一个数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3c4d5be&apos;;</div><div class="line">console.log(str.match(&apos;h&apos;)); //null</div><div class="line">console.log(str.match(&apos;b&apos;)); //[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]</div><div class="line">console.log(str.match(/b/)); //[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]</div></pre></td></tr></table></figure></p>
+<p>如果参数中传入的是具有全局匹配的正则表达式，那么match从开始位置进行多次匹配，知道最后。如没有匹配到结果，则返回null。否则返回一个数组，数组中存放所有复合要求的子字符串，且没有index和input属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3c4db5e&apos;;</div><div class="line">console.log(str.match(/h/g)); //null</div><div class="line">console.log(str.match(/\d/g)); //[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</div><div class="line">console.log(str.match(/b/g)); //[&quot;b&quot;, &quot;b&quot;]</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="2-4-截取类方法"><a href="#2-4-截取类方法" class="headerlink" title="2.4 截取类方法"></a>2.4 截取类方法</h5><p><strong>2.41 substring(start, end)</strong><br>这是最常用到的字符串截取方法，可接受两个参数(参数不能为负)，分别是要截取的起始和结束位置。它将返回一个新的字符串，其内容是从start到end-1处的所有字符。若结束参数end省略，则表示从起始位置一直截取到最后。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.substring(1, 4)); //bcd</div><div class="line">console.log(str.substring(1)); //bcdefg</div><div class="line">console.log(str.substring(-1)); //abcdefg，传入负值时会视为0</div></pre></td></tr></table></figure></p>
+<p><strong>2.42 substr(start, length)</strong><br>在字符串中抽取从start下标开始的指定长度的字符，其返回值是一个字符串，包含从start处开始的length个字符。若没有指定length，则为从start处开始到结尾的字符。若start为负数，则表示从字符串尾部开始算起。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.substr(1, 3)); //bcd</div><div class="line">console.log(str.substr(2)); //cdefg</div><div class="line">console.log(str.substr(-2, 4)); //fg，目标长度较大的话，以实际截取的长度为准</div></pre></td></tr></table></figure></p>
+<p><strong>2.43 slice(start, end)</strong><br>slice()方法与substring()类似，它传入的两个参数也分别对应着开始和结束位置。区别在于，slice中的参数可以为负，若参数为负，则该参数规定的是从字符串尾部开始计算起的位置。也就是说，-1指字符串的最后一个字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.slice(1, 4)); //bcd</div><div class="line">console.log(str.slice(-3, -1)); //ef</div><div class="line">console.log(str.slice(1, -1)); //bcdef</div><div class="line">console.log(str.slice(-1, -3)); //&quot;&quot; 若传入的参数有问题，则返回空</div></pre></td></tr></table></figure></p>
+<h5 id="2-5其他方法"><a href="#2-5其他方法" class="headerlink" title="2.5其他方法"></a>2.5其他方法</h5><p><strong>2.51 replace()</strong><br>替换匹配的值，接受两个参数，第一个是搜索模式，第二个是替换的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//replace的一个应用，就是用来消除字符串首尾两端的空格</div><div class="line">var str = &quot;  hello world  &quot;;</div><div class="line">str.replace(/^\s+|\s+$/g, &apos;&apos;);</div></pre></td></tr></table></figure></p>
+<p>replace()方法的第二个参数还可以是个函数，将每一个匹配内容替换为函数返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;3 and 5&apos;.replace(/\d/g,function(match)&#123;</div><div class="line">    return 2 * match;</div><div class="line">&#125;); //&quot;6 and 10&quot;</div></pre></td></tr></table></figure></p>
+<p><strong>2.52 split(separator, howmany)</strong><br>该方法用于把字符串分割成字符串数组，第一个参数表示分割位置(参考符)，第二个参数表示返回数组的允许最大长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a|b|c|d|e&apos;;</div><div class="line">console.log(str.split(&apos;|&apos;)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div><div class="line">console.log(str.split(&apos;|&apos;, 3)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</div><div class="line">console.log(str.split(&apos;&apos;)); //[&quot;a&quot;, &quot;|&quot;, &quot;b&quot;, &quot;|&quot;, &quot;c&quot;, &quot;|&quot;, &quot;d&quot;, &quot;|&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
+<p>也可以用正则来切割<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a1b2c3d4e&apos;;</div><div class="line">console.log(str.split(/\d/)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
+<p><strong>2.53 toLowerCase()和toUpperCase()</strong><br>字母大小写转化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &apos;JavaScript&apos;;</div><div class="line">console.log(str.toLowerCase()); //javascript</div><div class="line">console.log(str.toUpperCase()); //JAVASCRIPT</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -897,7 +1280,7 @@ gulp.task(&apos;production&apos;,function(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

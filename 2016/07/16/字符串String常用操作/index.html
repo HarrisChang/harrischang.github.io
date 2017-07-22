@@ -1,0 +1,617 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="一、String对象属性1.1 length属性获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。
+1.2 prototype属性在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。123String.prototype.trim = function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串String常用操作">
+<meta property="og:url" content="http://yoursite.com/2016/07/16/字符串String常用操作/index.html">
+<meta property="og:site_name" content="Harris Chang">
+<meta property="og:description" content="一、String对象属性1.1 length属性获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。
+1.2 prototype属性在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。123String.prototype.trim = function">
+<meta property="og:updated_time" content="2017-07-22T04:13:39.335Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符串String常用操作">
+<meta name="twitter:description" content="一、String对象属性1.1 length属性获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。
+1.2 prototype属性在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。123String.prototype.trim = function">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/16/字符串String常用操作/"/>
+
+
+  <title> 字符串String常用操作 | Harris Chang </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Harris Chang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">张奇的个人博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                字符串String常用操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-16T14:23:11+08:00" content="2016-07-16">
+              2016-07-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/16/字符串String常用操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/16/字符串String常用操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、String对象属性"><a href="#一、String对象属性" class="headerlink" title="一、String对象属性"></a>一、String对象属性</h4><h5 id="1-1-length属性"><a href="#1-1-length属性" class="headerlink" title="1.1 length属性"></a>1.1 length属性</h5><p>获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。</p>
+<h5 id="1-2-prototype属性"><a href="#1-2-prototype属性" class="headerlink" title="1.2 prototype属性"></a>1.2 prototype属性</h5><p>在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.trim = function()&#123;</div><div class="line">    return this.replace(/^\s*|\s*$/g,&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="二、String对象方法"><a href="#二、String对象方法" class="headerlink" title="二、String对象方法"></a>二、String对象方法</h4><h5 id="2-1-charAt-index"><a href="#2-1-charAt-index" class="headerlink" title="2.1 charAt(index)"></a>2.1 charAt(index)</h5><p>获取指定位置的字符串，从0到str.length-1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcdef&quot;;</div><div class="line">str.charAt(2); //c</div><div class="line">str.charAt(7); // &apos;&apos;</div></pre></td></tr></table></figure></p>
+<h5 id="2-2-charCodeAt-index"><a href="#2-2-charCodeAt-index" class="headerlink" title="2.2 charCodeAt(index)"></a>2.2 charCodeAt(index)</h5><p>返回指定位置字符的unicode编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcde&quot;;</div><div class="line">console.log(str.charCodeAt(0)); //97</div></pre></td></tr></table></figure></p>
+<h5 id="2-3-查找类方法"><a href="#2-3-查找类方法" class="headerlink" title="2.3 查找类方法"></a>2.3 查找类方法</h5><p><strong>2.31 indexOf(searchvalue, fromindex)</strong><br>用来检索指定的字符串值在字符串中首次出现的位置，fromindex可以省略，省略的话从0开始检索。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdeabcde&apos;;</div><div class="line">console.log(str.indexOf(&apos;a&apos;)); //0</div><div class="line">console.log(str.indexOf(&apos;a&apos;, 3)); //5</div><div class="line">console.log(str.indexOf(&apos;bc&apos;)); //1</div></pre></td></tr></table></figure></p>
+<p><strong>2.32 str.lastIndexOf(searchvalue,fromindex)</strong><br>用来检索指定的字符串值最后出现的位置，检索顺序从后向前。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdeabcde&apos;;</div><div class="line">console.log(str.lastIndexOf(&apos;a&apos;)); //5</div><div class="line">console.log(str.lastIndexOf(&apos;a&apos;, 3)); //0 从第索引3的位置往前检索</div><div class="line">console.log(str.lastIndexOf(&apos;bc&apos;)); //6</div></pre></td></tr></table></figure></p>
+<p><strong>2.33 str.search()</strong><br>str.search(substr), str.search(regexp)用于检索字符串中指定的子字符串，或与正则表达式相匹配的子字符串。它返回第一个子字符串的起始位置，如未匹配到，则返回-1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcDEDF&apos;;</div><div class="line">console.log(str.search(&apos;c&apos;)); //2</div><div class="line">console.log(str.search(&apos;d&apos;)); //-1</div><div class="line">console.log(str.search(/d/i)); //3</div></pre></td></tr></table></figure></p>
+<p><strong>2.34 str.match()</strong><br>str.match(substr), str.match(regexp)在字符串内检索指定的值，或找到一个(或多个)正则表达式的匹配。</p>
+<blockquote>
+<p>如果参数中传入的是子字符串或没有全局匹配的正则表达式，则match方法从开始位置进行一次匹配，若未匹配到则返回null，否则返回一个数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3c4d5be&apos;;</div><div class="line">console.log(str.match(&apos;h&apos;)); //null</div><div class="line">console.log(str.match(&apos;b&apos;)); //[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]</div><div class="line">console.log(str.match(/b/)); //[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]</div></pre></td></tr></table></figure></p>
+<p>如果参数中传入的是具有全局匹配的正则表达式，那么match从开始位置进行多次匹配，知道最后。如没有匹配到结果，则返回null。否则返回一个数组，数组中存放所有复合要求的子字符串，且没有index和input属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3c4db5e&apos;;</div><div class="line">console.log(str.match(/h/g)); //null</div><div class="line">console.log(str.match(/\d/g)); //[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</div><div class="line">console.log(str.match(/b/g)); //[&quot;b&quot;, &quot;b&quot;]</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="2-4-截取类方法"><a href="#2-4-截取类方法" class="headerlink" title="2.4 截取类方法"></a>2.4 截取类方法</h5><p><strong>2.41 substring(start, end)</strong><br>这是最常用到的字符串截取方法，可接受两个参数(参数不能为负)，分别是要截取的起始和结束位置。它将返回一个新的字符串，其内容是从start到end-1处的所有字符。若结束参数end省略，则表示从起始位置一直截取到最后。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.substring(1, 4)); //bcd</div><div class="line">console.log(str.substring(1)); //bcdefg</div><div class="line">console.log(str.substring(-1)); //abcdefg，传入负值时会视为0</div></pre></td></tr></table></figure></p>
+<p><strong>2.42 substr(start, length)</strong><br>在字符串中抽取从start下标开始的指定长度的字符，其返回值是一个字符串，包含从start处开始的length个字符。若没有指定length，则为从start处开始到结尾的字符。若start为负数，则表示从字符串尾部开始算起。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.substr(1, 3)); //bcd</div><div class="line">console.log(str.substr(2)); //cdefg</div><div class="line">console.log(str.substr(-2, 4)); //fg，目标长度较大的话，以实际截取的长度为准</div></pre></td></tr></table></figure></p>
+<p><strong>2.43 slice(start, end)</strong><br>slice()方法与substring()类似，它传入的两个参数也分别对应着开始和结束位置。区别在于，slice中的参数可以为负，若参数为负，则该参数规定的是从字符串尾部开始计算起的位置。也就是说，-1指字符串的最后一个字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.slice(1, 4)); //bcd</div><div class="line">console.log(str.slice(-3, -1)); //ef</div><div class="line">console.log(str.slice(1, -1)); //bcdef</div><div class="line">console.log(str.slice(-1, -3)); //&quot;&quot; 若传入的参数有问题，则返回空</div></pre></td></tr></table></figure></p>
+<h5 id="2-5其他方法"><a href="#2-5其他方法" class="headerlink" title="2.5其他方法"></a>2.5其他方法</h5><p><strong>2.51 replace()</strong><br>替换匹配的值，接受两个参数，第一个是搜索模式，第二个是替换的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//replace的一个应用，就是用来消除字符串首尾两端的空格</div><div class="line">var str = &quot;  hello world  &quot;;</div><div class="line">str.replace(/^\s+|\s+$/g, &apos;&apos;);</div></pre></td></tr></table></figure></p>
+<p>replace()方法的第二个参数还可以是个函数，将每一个匹配内容替换为函数返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;3 and 5&apos;.replace(/\d/g,function(match)&#123;</div><div class="line">    return 2 * match;</div><div class="line">&#125;); //&quot;6 and 10&quot;</div></pre></td></tr></table></figure></p>
+<p><strong>2.52 split(separator, howmany)</strong><br>该方法用于把字符串分割成字符串数组，第一个参数表示分割位置(参考符)，第二个参数表示返回数组的允许最大长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a|b|c|d|e&apos;;</div><div class="line">console.log(str.split(&apos;|&apos;)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div><div class="line">console.log(str.split(&apos;|&apos;, 3)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</div><div class="line">console.log(str.split(&apos;&apos;)); //[&quot;a&quot;, &quot;|&quot;, &quot;b&quot;, &quot;|&quot;, &quot;c&quot;, &quot;|&quot;, &quot;d&quot;, &quot;|&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
+<p>也可以用正则来切割<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a1b2c3d4e&apos;;</div><div class="line">console.log(str.split(/\d/)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
+<p><strong>2.53 toLowerCase()和toUpperCase()</strong><br>字母大小写转化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &apos;JavaScript&apos;;</div><div class="line">console.log(str.toLowerCase()); //javascript</div><div class="line">console.log(str.toUpperCase()); //JAVASCRIPT</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/16/数组Array常用操作/" rel="prev" title="数组Array常用操作">
+                数组Array常用操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/16/字符串String常用操作/"
+           data-title="字符串String常用操作" data-url="http://yoursite.com/2016/07/16/字符串String常用操作/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Harris Chang" />
+          <p class="site-author-name" itemprop="name">Harris Chang</p>
+          <p class="site-description motion-element" itemprop="description">做一个超级自律、超级热爱生活的人！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/HarrisChang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2036165942" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、String对象属性"><span class="nav-number">1.</span> <span class="nav-text">一、String对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-length属性"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 length属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-prototype属性"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 prototype属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、String对象方法"><span class="nav-number">2.</span> <span class="nav-text">二、String对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-charAt-index"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 charAt(index)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-charCodeAt-index"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 charCodeAt(index)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-查找类方法"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 查找类方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-截取类方法"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 截取类方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5其他方法"><span class="nav-number">2.5.</span> <span class="nav-text">2.5其他方法</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Harris Chang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"harrischang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
