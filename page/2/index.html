@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="一、String对象属性1.1 length属性获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。
-1.2 prototype属性在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。123String.prototype.trim = function">
-<meta property="og:type" content="article">
-<meta property="og:title" content="字符串String常用操作">
-<meta property="og:url" content="http://yoursite.com/2016/07/16/字符串String常用操作/index.html">
+<meta name="description" content="做一个超级自律、超级热爱生活的人！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Harris Chang">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Harris Chang">
-<meta property="og:description" content="一、String对象属性1.1 length属性获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。
-1.2 prototype属性在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。123String.prototype.trim = function">
-<meta property="og:updated_time" content="2017-07-22T04:13:39.335Z">
+<meta property="og:description" content="做一个超级自律、超级热爱生活的人！">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="字符串String常用操作">
-<meta name="twitter:description" content="一、String对象属性1.1 length属性获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。
-1.2 prototype属性在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。123String.prototype.trim = function">
+<meta name="twitter:title" content="Harris Chang">
+<meta name="twitter:description" content="做一个超级自律、超级热爱生活的人！">
 
 
 
@@ -117,10 +113,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/16/字符串String常用操作/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
-  <title> 字符串String常用操作 | Harris Chang </title>
+  <title> Harris Chang </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +137,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -208,9 +206,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -230,7 +228,10 @@
             
             
               
-                字符串String常用操作
+                
+                <a class="post-title-link" href="/2016/07/16/字符串String常用操作/" itemprop="url">
+                  字符串String常用操作
+                </a>
               
             
           </h1>
@@ -277,7 +278,9 @@
       
 
       
-        <h4 id="一、String对象属性"><a href="#一、String对象属性" class="headerlink" title="一、String对象属性"></a>一、String对象属性</h4><h5 id="1-1-length属性"><a href="#1-1-length属性" class="headerlink" title="1.1 length属性"></a>1.1 length属性</h5><p>获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。</p>
+        
+          
+            <h4 id="一、String对象属性"><a href="#一、String对象属性" class="headerlink" title="一、String对象属性"></a>一、String对象属性</h4><h5 id="1-1-length属性"><a href="#1-1-length属性" class="headerlink" title="1.1 length属性"></a>1.1 length属性</h5><p>获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。</p>
 <h5 id="1-2-prototype属性"><a href="#1-2-prototype属性" class="headerlink" title="1.2 prototype属性"></a>1.2 prototype属性</h5><p>在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.trim = function()&#123;</div><div class="line">    return this.replace(/^\s*|\s*$/g,&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="二、String对象方法"><a href="#二、String对象方法" class="headerlink" title="二、String对象方法"></a>二、String对象方法</h4><h5 id="2-1-charAt-index"><a href="#2-1-charAt-index" class="headerlink" title="2.1 charAt(index)"></a>2.1 charAt(index)</h5><p>获取指定位置的字符串，从0到str.length-1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcdef&quot;;</div><div class="line">str.charAt(2); //c</div><div class="line">str.charAt(7); // &apos;&apos;</div></pre></td></tr></table></figure></p>
 <h5 id="2-2-charCodeAt-index"><a href="#2-2-charCodeAt-index" class="headerlink" title="2.2 charCodeAt(index)"></a>2.2 charCodeAt(index)</h5><p>返回指定位置字符的unicode编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcde&quot;;</div><div class="line">console.log(str.charCodeAt(0)); //97</div></pre></td></tr></table></figure></p>
@@ -298,20 +301,16 @@
 <p>也可以用正则来切割<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a1b2c3d4e&apos;;</div><div class="line">console.log(str.split(/\d/)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
 <p><strong>2.53 toLowerCase()和toUpperCase()</strong><br>字母大小写转化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &apos;JavaScript&apos;;</div><div class="line">console.log(str.toLowerCase()); //javascript</div><div class="line">console.log(str.toUpperCase()); //JAVASCRIPT</div></pre></td></tr></table></figure></p>
 
+          
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
@@ -319,32 +318,23 @@
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/16/数组Array常用操作/" rel="prev" title="数组Array常用操作">
-                数组Array常用操作 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
       
+      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -352,14 +342,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/07/16/字符串String常用操作/"
-           data-title="字符串String常用操作" data-url="http://yoursite.com/2016/07/16/字符串String常用操作/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -379,17 +361,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -445,17 +418,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、String对象属性"><span class="nav-number">1.</span> <span class="nav-text">一、String对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-length属性"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 length属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-prototype属性"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 prototype属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、String对象方法"><span class="nav-number">2.</span> <span class="nav-text">二、String对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-charAt-index"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 charAt(index)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-charCodeAt-index"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 charCodeAt(index)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-查找类方法"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 查找类方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-截取类方法"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 截取类方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5其他方法"><span class="nav-number">2.5.</span> <span class="nav-text">2.5其他方法</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -559,10 +521,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
 
   
 

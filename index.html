@@ -229,6 +229,143 @@
             
               
                 
+                <a class="post-title-link" href="/2017/07/23/前端基础进阶1：内存空间详解/" itemprop="url">
+                  前端基础进阶1：内存空间详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-23T00:00:00+08:00" content="2017-07-23">
+              2017-07-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/07/23/前端基础进阶1：内存空间详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/23/前端基础进阶1：内存空间详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考自：<a href="http://www.jianshu.com/p/996671d4dcc4" target="_blank" rel="external">前端基础进阶</a></p>
+<p><img src="https://github.com/HarrisChang/MarkDownImages/raw/master/1-1.png" alt="变量对象与堆内存"></p>
+<center>变量对象与堆内存</center>
+
+<p>因为JavaScript具有自动垃圾回收机制，对于前端开发来说，内存空间并不是一个经常被提及的概念，常被忽略。随着知识的增长，才渐渐明白，想要对JS的理解更加深刻，需对内存有一个清晰的认识。</p>
+<h4 id="一、栈与堆"><a href="#一、栈与堆" class="headerlink" title="一、栈与堆"></a>一、栈与堆</h4><blockquote>
+<p>注：栈也叫堆栈</p>
+</blockquote>
+<p>JS并没有严格意义上区分栈与堆，我们可以粗浅地理解为JS的所有数据都保存在堆内存中。但在某些情况下，仍需要基于栈&amp;堆数据结构的思路进行处理，比如JS的执行上下文。<br><strong>栈空间特点：先进后出，后进先出</strong><br>要简单理解栈的存取方式，可类比乒乓球盒来分析。</p>
+<p><img src="https://github.com/HarrisChang/MarkDownImages/raw/master/1-2.png" alt="乒乓球盒子与栈类比"></p>
+<center>乒乓球盒子与栈类比</center>
+
+<p><strong>堆存取数据的方式，则与书架非常类似</strong><br>书整齐地存放在书架上，但只要知道书名，就可以很方便地找到相应书籍，与先后顺序无关。</p>
+<h4 id="二、变量对象与基础数据类型"><a href="#二、变量对象与基础数据类型" class="headerlink" title="二、变量对象与基础数据类型"></a>二、变量对象与基础数据类型</h4><p>JavsScript的执行上下文生成以后，会创建一个叫做变量对象的特殊对象，JS的基础数据类型往往都会保存在变量对象中。</p>
+<blockquote>
+<p>严格来说，变量对象也存放于堆内存中，但由于变量对象的特殊职能，在理解时仍需将其与堆内存区分开来。</p>
+</blockquote>
+<p>JS有5中基础数据类型，分别是：Undefined,null,Number,String,Boolean。基础数据类型都是按值访问，因此我们可以直接操作保存在变量中的实际的值。</p>
+<h4 id="三、引用数据类型与堆内存"><a href="#三、引用数据类型与堆内存" class="headerlink" title="三、引用数据类型与堆内存"></a>三、引用数据类型与堆内存</h4><p>不同于其他语言，JS的引用数据类型，比如数组Array，它们值的大小是不固定的。引用数据类型的值是保存在堆内存中的对象。JS不允许直接访问堆内存中的位置，因此我们不能直接操作对象的堆内存空间。操作对象时，实际上是在操作对象的引用而不是实际的对象。因此，引用类型的值都是按引用访问的。这里的引用，可以粗浅地理解为保存在变量对象中的一个地址，该地址与堆内存的实际值相关联。<br>为搞清楚变量对象与堆内存，可结合如下例子与图解进行分析。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a1 = 0;  //变量对象</div><div class="line">var a2 = &quot;This is a string&quot;;  //变量对象</div><div class="line">var a3 = null;  //变量对象</div><div class="line"></div><div class="line">var b = &#123; m: 20 &#125;;  //变量b存在于变量对象中，&#123; m: 20 &#125;作为对象存在于堆内存中</div><div class="line">var c = [1,2,3];  //变量c存在于变量对象中，[1,2,3]作为对象存在于堆内存中</div></pre></td></tr></table></figure></p>
+<p><img src="https://github.com/HarrisChang/MarkDownImages/raw/master/1-3.png" alt="上例图示"></p>
+<p>因此当我们要访问堆内存中的引用数据类型时，实际上我们首先是从变量对象中获取了该对象的地址引用(或者地址指针)，然后再从堆内存中取得我们需要的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//demo01.js</div><div class="line">var a = 20;</div><div class="line">var b = a;</div><div class="line">b = 30;</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//demo02.js</div><div class="line">var m = &#123; a:20, b:30 &#125;;</div><div class="line">var n = m;</div><div class="line">n.a = 10;</div><div class="line">console.log(m.a);</div></pre></td></tr></table></figure>
+<p>变量对象中的数据发声复制行为时，系统会自动为新的变量分配一个新值。具体如图，所以我们修改了b的值后，a的值不会改变。</p>
+<p><img src="https://github.com/HarrisChang/MarkDownImages/raw/master/1-4.png" alt="上例图示"></p>
+<center>demo01图解</center>
+
+<p>在demo02中，我们通过var n = m执行一次复制的操作，引用类型的复制同样也会为新的变量自动分配一个新的值保存在变量对象中，但不同的是，这个新的值，仅仅只是引用类型的一个地址指针。当地址指针相同时，尽管他们相互独立，但在变量对象中访问到的具体的对象实际上是同一个。<br>因此当n改变时，m也发生了变化。</p>
+<p><img src="https://github.com/HarrisChang/MarkDownImages/raw/master/1-5.png" alt="上例图示"></p>
+<center>demo02图解</center>
+
+<h4 id="四、内存空间管理"><a href="#四、内存空间管理" class="headerlink" title="四、内存空间管理"></a>四、内存空间管理</h4><p>了解内存机制有助于自己清晰认识到自己写的代码在执行过程中发生了什么，因此关心内存是一件非常重要的事情。</p>
+<h5 id="1-JavaScript的内存生命周期"><a href="#1-JavaScript的内存生命周期" class="headerlink" title="1.JavaScript的内存生命周期"></a>1.JavaScript的内存生命周期</h5><p><pre><br>1.分配你所需要的内存<br>2.使用分配到的内存(读、写)<br>3.不需要要时将其释放、归还<br></pre><br>结合以下例子理解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = 20; //在内存中给数值变量分配空间</div><div class="line">alert(a+20); //使用内存</div><div class="line">a = null; //使用完毕之后，释放内存空间</div></pre></td></tr></table></figure></p>
+<p>前两步很好理解，JS在定义变量时就完成了内存分配，第三步需重点理解。<br>JS具有自动垃圾收集机制，那么自动垃圾收集机制的原理是什么？其实很简单，就是找出那些不再继续使用的值，然后释放其占用的内存。垃圾收集器会每隔固定的时间执行一次释放操作。<br>在JS中，最常用的是通过<code>标记清除</code>的算法来找到哪些对象是不再使用的。因此a = null仅仅只是做了一个释放引用的操作，让a原本对应的值失去引用，脱离执行环境，这个值会在下一次垃圾收集器执行操作时被找到并释放。而在适当的时候解除引用，是为页面获得更好性能的一个重要方式。</p>
+<blockquote>
+<p>在局部作用域中，当函数执行完毕，局部变量就没有存在的必要，因此垃圾收集器很容易做出判断并回收。但是全局变量什么时候需要自动释放空间则很难判断，因此在开发中，需尽量避免使用全局变量，以确保性能问题。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/07/23/Reading2017/" itemprop="url">
                   2017书单
                 </a>
@@ -1446,129 +1583,13 @@ gulp.task(&apos;production&apos;,function(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/16/字符串String常用操作/" itemprop="url">
-                  字符串String常用操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-16T14:23:11+08:00" content="2016-07-16">
-              2016-07-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/16/字符串String常用操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/16/字符串String常用操作/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="一、String对象属性"><a href="#一、String对象属性" class="headerlink" title="一、String对象属性"></a>一、String对象属性</h4><h5 id="1-1-length属性"><a href="#1-1-length属性" class="headerlink" title="1.1 length属性"></a>1.1 length属性</h5><p>获取字符串的长度，需注意的是，JS中的中文每个汉字也只代表一个字符，可能跟其他语言不同。</p>
-<h5 id="1-2-prototype属性"><a href="#1-2-prototype属性" class="headerlink" title="1.2 prototype属性"></a>1.2 prototype属性</h5><p>在OOP中经常用到，用来给对象添加属性或方法，且添加的属性或方法在所有实例上共享。因此常用来扩展JS对象，如下面的代码给String添加了一个去除两边空格的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.trim = function()&#123;</div><div class="line">    return this.replace(/^\s*|\s*$/g,&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="二、String对象方法"><a href="#二、String对象方法" class="headerlink" title="二、String对象方法"></a>二、String对象方法</h4><h5 id="2-1-charAt-index"><a href="#2-1-charAt-index" class="headerlink" title="2.1 charAt(index)"></a>2.1 charAt(index)</h5><p>获取指定位置的字符串，从0到str.length-1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcdef&quot;;</div><div class="line">str.charAt(2); //c</div><div class="line">str.charAt(7); // &apos;&apos;</div></pre></td></tr></table></figure></p>
-<h5 id="2-2-charCodeAt-index"><a href="#2-2-charCodeAt-index" class="headerlink" title="2.2 charCodeAt(index)"></a>2.2 charCodeAt(index)</h5><p>返回指定位置字符的unicode编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcde&quot;;</div><div class="line">console.log(str.charCodeAt(0)); //97</div></pre></td></tr></table></figure></p>
-<h5 id="2-3-查找类方法"><a href="#2-3-查找类方法" class="headerlink" title="2.3 查找类方法"></a>2.3 查找类方法</h5><p><strong>2.31 indexOf(searchvalue, fromindex)</strong><br>用来检索指定的字符串值在字符串中首次出现的位置，fromindex可以省略，省略的话从0开始检索。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdeabcde&apos;;</div><div class="line">console.log(str.indexOf(&apos;a&apos;)); //0</div><div class="line">console.log(str.indexOf(&apos;a&apos;, 3)); //5</div><div class="line">console.log(str.indexOf(&apos;bc&apos;)); //1</div></pre></td></tr></table></figure></p>
-<p><strong>2.32 str.lastIndexOf(searchvalue,fromindex)</strong><br>用来检索指定的字符串值最后出现的位置，检索顺序从后向前。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdeabcde&apos;;</div><div class="line">console.log(str.lastIndexOf(&apos;a&apos;)); //5</div><div class="line">console.log(str.lastIndexOf(&apos;a&apos;, 3)); //0 从第索引3的位置往前检索</div><div class="line">console.log(str.lastIndexOf(&apos;bc&apos;)); //6</div></pre></td></tr></table></figure></p>
-<p><strong>2.33 str.search()</strong><br>str.search(substr), str.search(regexp)用于检索字符串中指定的子字符串，或与正则表达式相匹配的子字符串。它返回第一个子字符串的起始位置，如未匹配到，则返回-1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcDEDF&apos;;</div><div class="line">console.log(str.search(&apos;c&apos;)); //2</div><div class="line">console.log(str.search(&apos;d&apos;)); //-1</div><div class="line">console.log(str.search(/d/i)); //3</div></pre></td></tr></table></figure></p>
-<p><strong>2.34 str.match()</strong><br>str.match(substr), str.match(regexp)在字符串内检索指定的值，或找到一个(或多个)正则表达式的匹配。</p>
-<blockquote>
-<p>如果参数中传入的是子字符串或没有全局匹配的正则表达式，则match方法从开始位置进行一次匹配，若未匹配到则返回null，否则返回一个数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3c4d5be&apos;;</div><div class="line">console.log(str.match(&apos;h&apos;)); //null</div><div class="line">console.log(str.match(&apos;b&apos;)); //[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]</div><div class="line">console.log(str.match(/b/)); //[&quot;b&quot;, index: 3, input: &quot;1a2b3c4d5e&quot;]</div></pre></td></tr></table></figure></p>
-<p>如果参数中传入的是具有全局匹配的正则表达式，那么match从开始位置进行多次匹配，知道最后。如没有匹配到结果，则返回null。否则返回一个数组，数组中存放所有复合要求的子字符串，且没有index和input属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;1a2b3c4db5e&apos;;</div><div class="line">console.log(str.match(/h/g)); //null</div><div class="line">console.log(str.match(/\d/g)); //[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</div><div class="line">console.log(str.match(/b/g)); //[&quot;b&quot;, &quot;b&quot;]</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h5 id="2-4-截取类方法"><a href="#2-4-截取类方法" class="headerlink" title="2.4 截取类方法"></a>2.4 截取类方法</h5><p><strong>2.41 substring(start, end)</strong><br>这是最常用到的字符串截取方法，可接受两个参数(参数不能为负)，分别是要截取的起始和结束位置。它将返回一个新的字符串，其内容是从start到end-1处的所有字符。若结束参数end省略，则表示从起始位置一直截取到最后。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.substring(1, 4)); //bcd</div><div class="line">console.log(str.substring(1)); //bcdefg</div><div class="line">console.log(str.substring(-1)); //abcdefg，传入负值时会视为0</div></pre></td></tr></table></figure></p>
-<p><strong>2.42 substr(start, length)</strong><br>在字符串中抽取从start下标开始的指定长度的字符，其返回值是一个字符串，包含从start处开始的length个字符。若没有指定length，则为从start处开始到结尾的字符。若start为负数，则表示从字符串尾部开始算起。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.substr(1, 3)); //bcd</div><div class="line">console.log(str.substr(2)); //cdefg</div><div class="line">console.log(str.substr(-2, 4)); //fg，目标长度较大的话，以实际截取的长度为准</div></pre></td></tr></table></figure></p>
-<p><strong>2.43 slice(start, end)</strong><br>slice()方法与substring()类似，它传入的两个参数也分别对应着开始和结束位置。区别在于，slice中的参数可以为负，若参数为负，则该参数规定的是从字符串尾部开始计算起的位置。也就是说，-1指字符串的最后一个字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">console.log(str.slice(1, 4)); //bcd</div><div class="line">console.log(str.slice(-3, -1)); //ef</div><div class="line">console.log(str.slice(1, -1)); //bcdef</div><div class="line">console.log(str.slice(-1, -3)); //&quot;&quot; 若传入的参数有问题，则返回空</div></pre></td></tr></table></figure></p>
-<h5 id="2-5其他方法"><a href="#2-5其他方法" class="headerlink" title="2.5其他方法"></a>2.5其他方法</h5><p><strong>2.51 replace()</strong><br>替换匹配的值，接受两个参数，第一个是搜索模式，第二个是替换的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//replace的一个应用，就是用来消除字符串首尾两端的空格</div><div class="line">var str = &quot;  hello world  &quot;;</div><div class="line">str.replace(/^\s+|\s+$/g, &apos;&apos;);</div></pre></td></tr></table></figure></p>
-<p>replace()方法的第二个参数还可以是个函数，将每一个匹配内容替换为函数返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;3 and 5&apos;.replace(/\d/g,function(match)&#123;</div><div class="line">    return 2 * match;</div><div class="line">&#125;); //&quot;6 and 10&quot;</div></pre></td></tr></table></figure></p>
-<p><strong>2.52 split(separator, howmany)</strong><br>该方法用于把字符串分割成字符串数组，第一个参数表示分割位置(参考符)，第二个参数表示返回数组的允许最大长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a|b|c|d|e&apos;;</div><div class="line">console.log(str.split(&apos;|&apos;)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div><div class="line">console.log(str.split(&apos;|&apos;, 3)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</div><div class="line">console.log(str.split(&apos;&apos;)); //[&quot;a&quot;, &quot;|&quot;, &quot;b&quot;, &quot;|&quot;, &quot;c&quot;, &quot;|&quot;, &quot;d&quot;, &quot;|&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
-<p>也可以用正则来切割<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a1b2c3d4e&apos;;</div><div class="line">console.log(str.split(/\d/)); //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</div></pre></td></tr></table></figure></p>
-<p><strong>2.53 toLowerCase()和toUpperCase()</strong><br>字母大小写转化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &apos;JavaScript&apos;;</div><div class="line">console.log(str.toLowerCase()); //javascript</div><div class="line">console.log(str.toUpperCase()); //JAVASCRIPT</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1607,7 +1628,7 @@ gulp.task(&apos;production&apos;,function(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
